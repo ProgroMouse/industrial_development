@@ -7,16 +7,16 @@
 
 import UIKit
 
-struct Post {
-    var title: String
-    var author: String
-    var description: String
-    var image: String
-    var likes: Int
-    var views: Int
+public struct Post {
+    public var title: String
+    public var author: String
+    public var description: String
+    public var image: String
+    public var likes: Int
+    public var views: Int
 }
-extension Post {
-    static func make() -> [Post] {
+ extension Post {
+     public static func make() -> [Post] {
         [
             Post(
                 title: "Новые факты о горах",

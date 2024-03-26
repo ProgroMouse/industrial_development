@@ -1,4 +1,5 @@
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
     
@@ -23,7 +24,12 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+     
+#if DEBUG
+        view.backgroundColor = .green
+#else
         view.backgroundColor = .white
+#endif
         
         addSubviews()
         setupUI()
@@ -47,7 +53,10 @@ class ProfileViewController: UIViewController {
     
     private func setupUI() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            
+//           поменялся констрейнт для того, чтобы увидеть цвет выбраной схемы debug/ release
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+//            tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
